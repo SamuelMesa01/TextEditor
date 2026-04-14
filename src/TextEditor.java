@@ -5,7 +5,7 @@ import com.murcia.utils.*;
 class TextEditor {
     public static void main(String[] args) throws Exception{
         File file=new File("randomtext.txt");
-        Scanner sc=new Scanner(file);
+        //Scanner sc=new Scanner(file);//se elimina scanner y se utiliza input
         LinkedList<StringBuilder> l=new LinkedList<StringBuilder>();
         while(sc.hasNextLine()) {
             String line=sc.nextLine();
