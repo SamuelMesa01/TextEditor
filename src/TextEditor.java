@@ -7,15 +7,16 @@ class TextEditor {
         File file=new File("randomtext.txt");
         //Scanner sc=new Scanner(file);//se elimina scanner y se utiliza input
         LinkedList<StringBuilder> l=new LinkedList<StringBuilder>();
-        while(sc.hasNextLine()) {
-            String line=sc.nextLine();
+        while(sc.hasreadString()) {
+            String line=sc.readString();
             String[] words=line.split("\\s");
             for(String i:words) 
                 l.add(new StringBuilder(i));
             l.add(new StringBuilder("\n"));
         }
         Editor edit=new Editor(l);
-        sc=new Scanner(System.in);
+        //sc=new Scanner(System.in);
+        Input sc = new Input();
         while(true)
         {
             System.out.println("S - Save and Exit");
@@ -27,13 +28,13 @@ class TextEditor {
             System.out.println("d - Delete");
             edit.print();
             edit.printCursor();
-            String input=sc.nextLine();
+            String input = sc.readString();
             if(input.equals("S")) break;
             else if(input.equals("F")) edit.forward();
             else if(input.equals("B")) edit.backward();
             else if(input.equals("b")) edit.beginning();
             else if(input.equals("e")) edit.ending();
-            else if(input.equals("i")) edit.insert(sc.nextLine());
+            else if(input.equals("i")) edit.insert(sc.readString());
             else if(input.equals("d")) edit.delete();
             System.out.print("\033[H\033[2J");  
             System.out.flush();
